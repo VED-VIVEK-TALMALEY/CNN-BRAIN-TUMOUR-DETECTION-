@@ -1,2 +1,4 @@
 # CNN-BRAIN-TUMOUR-DETECTION-
 BRAIN TUMOUR DETECTION USING CNN MODEL 
+day 1-- 14/08/2025
+main project deployement start 
