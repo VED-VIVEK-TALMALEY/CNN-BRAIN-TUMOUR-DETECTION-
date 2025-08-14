@@ -77,11 +77,14 @@ ehthumbs.db
 Thumbs.db
 
 # Model files (large files)
-*.h5
+# Include the main model file but exclude others
+# *.h5
 *.hdf5
 *.pkl
 *.pickle
 *.joblib
+# Exclude other model files except our main model
+!brain_tumor_cnn_model.h5
 
 # Logs
 *.log

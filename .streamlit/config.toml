@@ -1,8 +1,8 @@
 [theme]
-primaryColor = "#3B82F6"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F8F9FA"
-textColor = "#262730"
+primaryColor = "#D76D77"  # Pink accent color
+backgroundColor = "#5A1C71"  # Dark purple
+secondaryBackgroundColor = "#3A1C71"  # Darker purple
+textColor = "#FFFFFF"
 font = "sans serif"
 
 [server]

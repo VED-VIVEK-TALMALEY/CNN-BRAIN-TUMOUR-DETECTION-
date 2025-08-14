@@ -7,7 +7,18 @@ import time
 import logging
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicCon# Header section with project information
+st.markdown("""
+    <div style='text-align: center; padding: 2rem;'>
+        <h1 style='font-size: 3rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #D76D77, #5A1C71); -webkit-background-clip: text; -webkit-text-fill-color: transparent;'>
+            🧠 Brain Tumor Detection
+        </h1>
+        <p style='font-size: 1.2rem; color: rgba(255, 255, 255, 0.8); margin-top: 1rem;'>
+            Advanced AI-Powered Detection System for Brain Tumor Analysis
+        </p>
+    </div>
+    <div style='height: 2px; background: linear-gradient(90deg, transparent, #D76D77, transparent); margin: 1rem 0;'></div>
+""", unsafe_allow_html=True)el=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Set page config and styling
@@ -17,33 +28,38 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS
+# Custom CSS with new theme
 st.markdown("""
     <style>
     .stApp {
         max-width: 1200px;
         margin: 0 auto;
+        background: linear-gradient(135deg, #5A1C71, #3A1C71);
     }
     .success-message {
         padding: 1rem;
         border-radius: 0.5rem;
-        background-color: #D1E7DD;
-        color: #0F5132;
-        border: 1px solid #BADBCC;
+        background-color: rgba(209, 231, 221, 0.1);
+        color: #D76D77;
+        border: 1px solid rgba(215, 109, 119, 0.2);
+        backdrop-filter: blur(10px);
     }
     .error-message {
         padding: 1rem;
         border-radius: 0.5rem;
-        background-color: #F8D7DA;
-        color: #842029;
-        border: 1px solid #F5C2C7;
+        background-color: rgba(215, 109, 119, 0.1);
+        color: #D76D77;
+        border: 1px solid rgba(215, 109, 119, 0.2);
+        backdrop-filter: blur(10px);
     }
     .info-box {
-        background-color: #F8F9FA;
+        background: rgba(58, 28, 113, 0.3);
         padding: 1.5rem;
         border-radius: 0.5rem;
-        border: 1px solid #DEE2E6;
+        border: 1px solid rgba(215, 109, 119, 0.2);
         margin: 1rem 0;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .metrics-container {
         display: flex;
@@ -52,12 +68,43 @@ st.markdown("""
         margin: 1rem 0;
     }
     .metric-card {
-        background-color: #F8F9FA;
-        padding: 1rem;
+        background: rgba(58, 28, 113, 0.3);
+        padding: 1.5rem;
         border-radius: 0.5rem;
-        border: 1px solid #DEE2E6;
+        border: 1px solid rgba(215, 109, 119, 0.2);
         flex: 1;
         text-align: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .stButton > button {
+        background: linear-gradient(135deg, #D76D77, #5A1C71);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    .stButton > button:hover {
+        background: linear-gradient(135deg, #5A1C71, #D76D77);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(215, 109, 119, 0.2);
+    }
+    .upload-box {
+        border: 2px dashed rgba(215, 109, 119, 0.5);
+        border-radius: 0.5rem;
+        padding: 2rem;
+        text-align: center;
+        background: rgba(58, 28, 113, 0.2);
+        backdrop-filter: blur(10px);
+    }
+    h1, h2, h3 {
+        color: #D76D77 !important;
+        font-weight: 600 !important;
+    }
+    .stMarkdown {
+        color: rgba(255, 255, 255, 0.9) !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -67,15 +114,24 @@ st.markdown("""
 def load_model():
     try:
         model_path = 'brain_tumor_cnn_model.h5'
+        # Print current directory contents for debugging
+        st.write("Looking for model file...")
+        current_dir = os.getcwd()
+        files = os.listdir(current_dir)
+        st.write(f"Files in current directory: {files}")
+        
         if os.path.exists(model_path):
+            st.write(f"Found model at: {model_path}")
             model = tf.keras.models.load_model(model_path)
-            logger.info("Model loaded successfully!")
+            st.success("Model loaded successfully!")
             return model
         else:
-            logger.error(f"Model file not found: {model_path}")
+            st.error(f"Model file not found at: {os.path.abspath(model_path)}")
+            st.write("Please ensure the model file is uploaded to the repository")
             return None
     except Exception as e:
-        logger.error(f"Error loading model: {str(e)}")
+        st.error(f"Error loading model: {str(e)}")
+        st.write("Full error details:", e)
         return None
 
 # Image preprocessing with caching
