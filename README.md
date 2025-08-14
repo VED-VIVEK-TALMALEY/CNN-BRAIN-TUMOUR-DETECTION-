@@ -6,11 +6,11 @@ An advanced AI-powered Convolutional Neural Network (CNN) model for accurate bra
 Try It Out
 You can try the brain tumor detection app live on your device by visiting:
 Braintumoro Streamlit App
-<img width="510" height="500" alt="image" src="https://github.com/user-attachments/assets/0b3316c6-fe7b-4111-b9fc-836aab77154a" />
+<img width="610" height="600" alt="image" src="https://github.com/user-attachments/assets/0b3316c6-fe7b-4111-b9fc-836aab77154a" />
 
 
 
-<img width="510" height="500" alt="image" src="https://github.com/user-attachments/assets/a391c0ae-9150-4f1b-bed0-bf0d411f2e5f" />
+<img width="610" height="600" alt="image" src="https://github.com/user-attachments/assets/a391c0ae-9150-4f1b-bed0-bf0d411f2e5f" />
 
 
 ## 🧠 Features
