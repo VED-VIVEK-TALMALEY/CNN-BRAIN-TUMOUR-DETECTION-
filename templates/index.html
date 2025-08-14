@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection - AI-Powered CNN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-icon">🧠</div>
+            <h1>Brain Tumor Detection</h1>
+            <p>Advanced AI-powered CNN model for accurate brain tumor detection in MRI scans with real-time analysis and detailed insights</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <h2><i class="fas fa-upload"></i> Upload MRI Scan</h2>
+                
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" class="file-input" accept=".jpg,.jpeg,.png,.bmp" />
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="upload-text">
+                        <strong>Click to upload</strong> or drag and drop
+                    </div>
+                    <div class="upload-hint">
+                        Supports JPG, PNG, JPEG, BMP (Max 16MB)
+                    </div>
+                </div>
+
+                <div class="selected-file" id="selectedFile">
+                    <div class="file-info">
+                        <i class="fas fa-file-image file-icon"></i>
+                        <span id="fileName"></span>
+                    </div>
+                </div>
+
+                <button class="analyze-btn" id="analyzeBtn" disabled>
+                    <i class="fas fa-brain"></i> Analyze Image
+                </button>
+            </section>
+
+            <!-- Instructions Section -->
+            <section class="instructions-section">
+                <h3><i class="fas fa-info-circle"></i> How It Works</h3>
+                <ul class="instructions-list">
+                    <li>
+                        <i class="fas fa-upload instruction-icon"></i>
+                        Upload your MRI scan image
+                    </li>
+                    <li>
+                        <i class="fas fa-cog instruction-icon"></i>
+                        AI processes and analyzes the image
+                    </li>
+                    <li>
+                        <i class="fas fa-chart-line instruction-icon"></i>
+                        Get instant results with confidence scores
+                    </li>
+                    <li>
+                        <i class="fas fa-shield-alt instruction-icon"></i>
+                        Secure and private analysis
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Loading Section -->
+        <div class="loading-section" id="loadingSection">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Analyzing your MRI scan...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <!-- Computing process will be dynamically inserted here by JavaScript -->
+        </div>
+
+        <!-- Error Section -->
+        <div class="error-section" id="errorSection">
+            <div class="error-text">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="errorText"></span>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <h3 class="results-header">
+                <i class="fas fa-chart-bar"></i> Analysis Results
+            </h3>
+            
+            <div class="result-grid">
+                <div class="result-card">
+                    <div class="result-label">Detection Result</div>
+                    <div class="result-value" id="detectionResult">-</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-label">Confidence Level</div>
+                    <div class="result-value" id="confidence">-</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-label">Probability Score</div>
+                    <div class="result-value" id="probability">-</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-label">Analysis Time</div>
+                    <div class="result-value" id="analysisTime">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
