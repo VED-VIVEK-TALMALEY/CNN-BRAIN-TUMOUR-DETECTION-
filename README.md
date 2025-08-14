@@ -1,6 +1,5 @@
 
-# CNN-BRAIN-TUMOUR-DETECTION-
-BRAIN TUMOUR DETECTION USING CNN MODEL 
+# Brain Tumour Detection using Convolutional Neural Network
 
 An advanced AI-powered Convolutional Neural Network (CNN) model for accurate brain tumor detection in MRI scans with a modern web interface featuring glass morphism effects.
 
