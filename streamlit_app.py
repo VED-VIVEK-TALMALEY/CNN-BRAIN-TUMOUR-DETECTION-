@@ -163,7 +163,7 @@ with col1:
                 status_text.empty()
                 st.markdown("<h3 style='color:#f5bc42;text-align:center;'>📊 Analysis Results</h3>", unsafe_allow_html=True)
                 if probability > 0.7:
-                    st.markdown(f"<div style='background:rgba(255,0,0,0.15);padding:24px;border-radius:16px;border:2px solid #f5bc42;box-shadow:0 0 24px 0 #f5bc42;'><h3 style='color:#FF4444;text-shadow:0 0 8px #f5bc42;'>⚠️ Tumor Detected</h3><p style='font-size:1.2em;font-weight:600;'>Confidence: {probability:.1%}</p><p style='font-size:1em;color:#FF4444;'>Please consult a medical professional immediately.</p></div>", unsafe_allow_html=True)
+                    st.markdown(f"<div style='background:rgba(255,0,0,0.15);padding:24px;border-radius:16px;border:2px solid #f5bc42;box-shadow:0 0 24px 0 #f5bc42;'><h3 style='color:#FF4444;text-shadow:0 0 8px #0d09ed ;'>⚠️ Warning Tumor Detected</h3><p style='font-size:1.2em;font-weight:600;'>Confidence: {probability:.1%}</p><p style='font-size:1em;color:#FF4444;'>Please consult a medical professional immediately.</p></div>", unsafe_allow_html=True)
                 elif probability <= 0.3:
                     st.markdown(f"<div style='background:rgba(0,255,0,0.12);padding:24px;border-radius:16px;border:2px solid #44FF44;box-shadow:0 0 24px 0 #44FF44;'><h3 style='color:#44FF44;text-shadow:0 0 8px #44FF44;'>✅ No Tumor Detected</h3><p style='font-size:1.2em;font-weight:600;'>Confidence: {1-probability:.1%}</p><p style='font-size:1em;color:#44FF44;'>Regular check-ups recommended.</p></div>", unsafe_allow_html=True)
                 else:
