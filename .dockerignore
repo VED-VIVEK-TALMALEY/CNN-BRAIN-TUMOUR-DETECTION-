@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+.git
+.gitignore
+.env
+venv/
+data/raw/
+data/processed/
+enhanced_brain_tumor_dataset/
+*.ipynb
+docs/
+tests/

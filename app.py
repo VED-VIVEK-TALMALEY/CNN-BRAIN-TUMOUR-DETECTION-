@@ -23,16 +23,20 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 model = None
 model_path = 'brain_tumor_cnn_model.h5'
 
-try:
-    if os.path.exists(model_path):
-        model = tf.keras.models.load_model(model_path)
-        logger.info("Model loaded successfully!")
-    else:
-        logger.warning(f"Model file not found: {model_path}")
-        logger.info("Please run 'python train_model.py' to train and create the model first")
-except Exception as e:
-    logger.error(f"Error loading model: {str(e)}")
-    logger.info("Please ensure the model file is valid or retrain the model")
+def load_model_if_needed():
+    global model
+    if model is None:
+        try:
+            if os.path.exists(model_path):
+                model = tf.keras.models.load_model(model_path)
+                logger.info("Model loaded successfully!")
+            else:
+                logger.warning(f"Model file not found: {model_path}")
+                logger.info("Please run 'python train_model.py' to train and create the model first")
+        except Exception as e:
+            logger.error(f"Error loading model: {str(e)}")
+            logger.info("Please ensure the model file is valid or retrain the model")
+    return model is not None
 
 def preprocess_image(image_path):
     """Preprocess image for model prediction"""
@@ -71,7 +75,7 @@ def predict():
     if file.filename == '':
         return jsonify({'error': 'No file selected'})
     
-    if model is None:
+    if not load_model_if_needed():
         return jsonify({
             'error': 'Model not loaded. Please run "python train_model.py" to train the model first.',
             'details': 'The brain tumor detection model has not been trained yet.'
