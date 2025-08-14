@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Brain Tumor Detection using CNN
 
 An advanced AI-powered Convolutional Neural Network (CNN) model for accurate brain tumor detection in MRI scans with a modern web interface featuring glass morphism effects.
@@ -211,3 +212,11 @@ For questions or issues:
 ---
 
 **Note**: This is a research and educational tool. Always consult medical professionals for actual medical diagnosis. 
+=======
+# CNN-BRAIN-TUMOUR-DETECTION-
+BRAIN TUMOUR DETECTION USING CNN MODEL 
+
+
+day 1-- 14/08/2025
+main project deployement start 
+>>>>>>> 2f2b27b2ee32969ac5e68aeec9469d014179769b
