@@ -5,7 +5,6 @@ An advanced AI-powered Convolutional Neural Network (CNN) model for accurate bra
 
 Try It Out
 You can try the brain tumor detection app live on your device by visiting:
-Braintumoro Streamlit App
 https://braintumoro.streamlit.app/
 
 
